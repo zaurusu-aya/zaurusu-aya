@@ -2,6 +2,10 @@
 import socket
 import time
 import mei
+import subprocess
+import scan
+
+
 
 host = 'localhost'
 port = 10500
@@ -33,12 +37,19 @@ while y == 0:
                 word = word + line
 
         # 「かめら」という文字列を認識したら...
-        print(word)
-        if word == 'おはようございます　　o':
-            t = word
+        if not word == '':
+            print(word)
+            t = word.split('　　',1)
             print(t)
-            mei.jtalk_normal(t)
-            y = 1
+            if t[0] == '[/s]':
+                print('')
+            else:
+                scan.scanandsay(t)
+            time.sleep(2)
+            word = ''
+            t = ''
+        
+        
             
         res = ''
         

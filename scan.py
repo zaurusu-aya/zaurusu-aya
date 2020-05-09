@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import yaml
 import mei
 
@@ -24,13 +25,14 @@ def scanandsay(text):
             elif talk[i][1] == 's':
                 mei.jtalk_sad(text)
             elif talk[i][1] == 'b':
-                mei.jtalk_bashful
+                mei.jtalk_bashful(text)
             p = 1
         else:
             i += 1
     if p == 0:
+        print(text * 3)
         text = 'すみません。よくわかりません。よかったらボキャブラリーに追加していってください。'
-        mei.jtalk_normal(text)
+        mei.jtalk_happy(text)
 
 
 def scan(text):
